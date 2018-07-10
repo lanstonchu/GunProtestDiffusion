@@ -43,3 +43,12 @@ Column 7: State (retrieved from Wolfram's API)
 Column 8: Latitude (retrieved from Wolfram's API)
 Column 9: Longitude (retrieved from Wolfram's API)
 Column 10: For data selection (whether some geographical information are unable to be retrieved)
+
+--------------------------------------------------------
+
+Protest Data structure 2
+(for prediction model validation)
+data from July 1 to July 5, 2018
+2a2 - validation - Count Love.xls
+
+Column details: Column heads are available
