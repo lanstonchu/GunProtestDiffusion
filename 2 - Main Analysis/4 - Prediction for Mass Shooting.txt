@@ -1,0 +1,1 @@
+To do the prediction for mass shooting by the same modeling methodology as what we did for the protest, please use "2 - analysis - Main.nb" to proceed. Change the import data of data0a to the MST data, and then comment out the scale growth analysis part which would lead to some error in those MST data.

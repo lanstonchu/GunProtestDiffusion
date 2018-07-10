@@ -1,0 +1,832 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     35658,        824]
+NotebookOptionsPosition[     32879,        769]
+NotebookOutlinePosition[     33246,        785]
+CellTagsIndexPosition[     33203,        782]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7396667469078817`*^9, 3.7396667546599083`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"50ce9772-6bfa-4df7-b224-b7af57072317"],
+
+Cell[CellGroupData[{
+
+Cell["Get the List of All Counties", "Title",
+ CellChangeTimes->{{3.739666869275234*^9, 
+  3.7396668762387342`*^9}},ExpressionUUID->"13b14c0f-a34a-4ed1-bf45-\
+27b2247e29ef"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"counties", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"EntityClass", "[", 
+      RowBox[{
+      "\"\<AdministrativeDivision\>\"", ",", "\"\<ContinentalUSStates\>\""}], 
+      "]"}], "[", "\"\<Subdivisions\>\"", "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7396635491303763`*^9, 3.7396635491303763`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"b786b10d-0829-48f1-9a3c-d9ce9f9aff58"],
+
+Cell[BoxData["3108"], "Output",
+ CellChangeTimes->{3.739663563295185*^9, 3.7396667674483557`*^9, 
+  3.739669083114826*^9, 3.7397037537556295`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"9939582c-593d-4231-86ed-25e2135ed9a7"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"counties", ",", 
+    RowBox[{"Entity", "[", 
+     RowBox[{"\"\<AdministrativeDivision\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<DistrictOfColumbia\>\"", ",", "\"\<DistrictOfColumbia\>\"", ",", 
+        "\"\<UnitedStates\>\""}], "}"}]}], "]"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.739663564224117*^9, 3.739663564224117*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"08606068-be01-404e-8ba2-18dfc3b0b7ff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bordering", "=", 
+   RowBox[{"EntityValue", "[", 
+    RowBox[{"counties", ",", "\"\<BorderingCounties\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7396635736510706`*^9, 3.7396635736540666`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"3dc4c0d6-fc1e-4f77-8764-2b1d891e0d59"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"missingpos", "=", 
+   RowBox[{"Position", "[", 
+    RowBox[{"bordering", ",", "_Missing"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7396635949554825`*^9, 3.739663594957576*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"1b81d397-e647-4eda-b10e-92a949b64439"],
+
+Cell[BoxData["17"], "Output",
+ CellChangeTimes->{3.7396646007061243`*^9, 3.7396667917209425`*^9, 
+  3.7396690845657463`*^9, 3.7397037545931516`*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"c9bba4b2-b2e1-40bc-8d01-eba2131280ab"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"counties", "=", 
+   RowBox[{"Delete", "[", 
+    RowBox[{"counties", ",", "missingpos"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.739663602130747*^9, 3.739663602130747*^9}, {
+  3.739704701360066*^9, 
+  3.739704701792802*^9}},ExpressionUUID->"c4723e12-02ca-43ac-8aef-\
+20e8b94b9ff6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Calculate the average distance of labouring counties by Stochastic Sampling\
+\>", "Title",
+ CellChangeTimes->{{3.7396668851617746`*^9, 
+  3.7396669249510884`*^9}},ExpressionUUID->"3c4a5a1b-a2fe-46ae-bda6-\
+4374c4b6cb16"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"rs", "=", 
+  RowBox[{"BlockRandom", "[", 
+   RowBox[{
+    RowBox[{"SeedRandom", "[", "11", "]"}], ";", 
+    RowBox[{"RandomSample", "[", 
+     RowBox[{"counties", ",", "40"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bordering2", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"EntityValue", "[", 
+      RowBox[{"#", ",", "\"\<BorderingCounties\>\""}], "]"}], "&"}], "/@", 
+    "rs"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7396656056106415`*^9, 3.7396656369158363`*^9}, {
+   3.739666066131174*^9, 3.7396660662092915`*^9}, {3.739666166017712*^9, 
+   3.7396662156582294`*^9}, 3.7396663713163958`*^9, {3.739666544745592*^9, 
+   3.739666544792467*^9}, {3.7396668060713453`*^9, 3.739666840831891*^9}, {
+   3.739668940241945*^9, 3.739668940379406*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"8d3b0e77-0099-4997-8c5d-044e4e07c534"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "\"Harvey County, Kansas, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"HarveyCounty\"", ",", "\"Kansas\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"HarveyCounty\\\", \
+\\\"Kansas\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Valley County, Idaho, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"ValleyCounty\"", ",", "\"Idaho\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"ValleyCounty\\\", \
+\\\"Idaho\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Adams County, Ohio, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"AdamsCounty\"", ",", "\"Ohio\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"AdamsCounty\\\", \\\"Ohio\
+\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Lee County, Illinois, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"LeeCounty\"", ",", "\"Illinois\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"LeeCounty\\\", \
+\\\"Illinois\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Claiborne County, Mississippi, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"ClaiborneCounty\"", ",", "\"Mississippi\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"ClaiborneCounty\\\", \
+\\\"Mississippi\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Monroe County, West Virginia, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"MonroeCounty\"", ",", "\"WestVirginia\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"MonroeCounty\\\", \
+\\\"WestVirginia\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Warren County, New York, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"WarrenCounty\"", ",", "\"NewYork\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"WarrenCounty\\\", \
+\\\"NewYork\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Oneida County, Wisconsin, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"OneidaCounty\"", ",", "\"Wisconsin\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"OneidaCounty\\\", \
+\\\"Wisconsin\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Berrien County, Michigan, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"BerrienCounty\"", ",", "\"Michigan\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"BerrienCounty\\\", \
+\\\"Michigan\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Douglas County, South Dakota, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"DouglasCounty\"", ",", "\"SouthDakota\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"DouglasCounty\\\", \
+\\\"SouthDakota\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Sutton County, Texas, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"SuttonCounty\"", ",", "\"Texas\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"SuttonCounty\\\", \
+\\\"Texas\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Surry County, North Carolina, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"SurryCounty\"", ",", "\"NorthCarolina\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"SurryCounty\\\", \
+\\\"NorthCarolina\\\", \\\"UnitedStates\\\"}]\"",
+     "\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Daviess County, Kentucky, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"DaviessCounty\"", ",", "\"Kentucky\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"DaviessCounty\\\", \
+\\\"Kentucky\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Unicoi County, Tennessee, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"UnicoiCounty\"", ",", "\"Tennessee\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"UnicoiCounty\\\", \
+\\\"Tennessee\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Pine County, Minnesota, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"PineCounty\"", ",", "\"Minnesota\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"PineCounty\\\", \
+\\\"Minnesota\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Hickory County, Missouri, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"HickoryCounty\"", ",", "\"Missouri\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"HickoryCounty\\\", \
+\\\"Missouri\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Washakie County, Wyoming, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"WashakieCounty\"", ",", "\"Wyoming\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"WashakieCounty\\\", \
+\\\"Wyoming\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Hopkins County, Texas, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"HopkinsCounty\"", ",", "\"Texas\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"HopkinsCounty\\\", \
+\\\"Texas\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Madison County, Mississippi, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"MadisonCounty\"", ",", "\"Mississippi\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"MadisonCounty\\\", \
+\\\"Mississippi\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Shannon County, Missouri, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"ShannonCounty\"", ",", "\"Missouri\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"ShannonCounty\\\", \
+\\\"Missouri\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Union County, Pennsylvania, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"UnionCounty\"", ",", "\"Pennsylvania\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"UnionCounty\\\", \
+\\\"Pennsylvania\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Fairfield County, South Carolina, United States\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"FairfieldCounty\"", ",", "\"SouthCarolina\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"FairfieldCounty\\\", \
+\\\"SouthCarolina\\\", \\\"UnitedStates\\\"}]\"",
+     "\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Benton County, Mississippi, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"BentonCounty\"", ",", "\"Mississippi\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"BentonCounty\\\", \
+\\\"Mississippi\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Greene County, Missouri, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"GreeneCounty\"", ",", "\"Missouri\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"GreeneCounty\\\", \
+\\\"Missouri\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Wicomico County, Maryland, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"WicomicoCounty\"", ",", "\"Maryland\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"WicomicoCounty\\\", \
+\\\"Maryland\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Poquoson (independent city), Virginia, United States\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"PoquosonIndependentCity\"", ",", "\"Virginia\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"PoquosonIndependentCity\\\
+\", \\\"Virginia\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Bowman County, North Dakota, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"BowmanCounty\"", ",", "\"NorthDakota\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"BowmanCounty\\\", \
+\\\"NorthDakota\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Franklin County, Nebraska, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"FranklinCounty\"", ",", "\"Nebraska\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"FranklinCounty\\\", \
+\\\"Nebraska\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Torrance County, New Mexico, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"TorranceCounty\"", ",", "\"NewMexico\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"TorranceCounty\\\", \
+\\\"NewMexico\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Bedford County, Virginia, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"BedfordCounty\"", ",", "\"Virginia\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"BedfordCounty\\\", \
+\\\"Virginia\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Wythe County, Virginia, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"WytheCounty\"", ",", "\"Virginia\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"WytheCounty\\\", \
+\\\"Virginia\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Lawrence County, Missouri, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"LawrenceCounty\"", ",", "\"Missouri\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"LawrenceCounty\\\", \
+\\\"Missouri\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Pointe Coupee Parish, Louisiana, United States\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"PointeCoupeeParish\"", ",", "\"Louisiana\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"PointeCoupeeParish\\\", \
+\\\"Louisiana\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Humboldt County, Nevada, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"HumboldtCounty\"", ",", "\"Nevada\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"HumboldtCounty\\\", \
+\\\"Nevada\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Barry County, Michigan, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"BarryCounty\"", ",", "\"Michigan\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"BarryCounty\\\", \
+\\\"Michigan\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Ashley County, Arkansas, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"AshleyCounty\"", ",", "\"Arkansas\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"AshleyCounty\\\", \
+\\\"Arkansas\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Kit Carson County, Colorado, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"KitCarsonCounty\"", ",", "\"Colorado\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"KitCarsonCounty\\\", \
+\\\"Colorado\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Ionia County, Michigan, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"IoniaCounty\"", ",", "\"Michigan\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"IoniaCounty\\\", \
+\\\"Michigan\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Madison County, Ohio, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"MadisonCounty\"", ",", "\"Ohio\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"MadisonCounty\\\", \
+\\\"Ohio\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Hamilton County, Indiana, United States\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"AdministrativeDivision\"", ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"\"HamiltonCounty\"", ",", "\"Indiana\"", ",", 
+             "\"UnitedStates\""}], "}"}]}], "]"}],
+     "\"Entity[\\\"AdministrativeDivision\\\", {\\\"HamiltonCounty\\\", \
+\\\"Indiana\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+    "Entity"]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.739665638347093*^9, 3.739666070790626*^9, {3.7396662260771756`*^9, 
+   3.739666235729189*^9}, 3.7396663725950994`*^9, 3.739666552999583*^9, {
+   3.7396668073155637`*^9, 3.7396668430793962`*^9}, 3.739668942235879*^9, 
+   3.7396690848344793`*^9, 3.7397037548110476`*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"96b234c8-b167-43cf-8a50-f65f9674c635"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"time", ",", "meanDist"}], "}"}], "=", 
+   RowBox[{"Timing", "[", 
+    RowBox[{"MapThread", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Mean", "@", 
+        RowBox[{"GeoDistance", "[", 
+         RowBox[{
+          RowBox[{"GeoPosition", "[", "#1", "]"}], ",", 
+          RowBox[{"GeoPosition", "[", "#2", "]"}]}], "]"}]}], "&"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"rs", ",", "bordering2"}], "}"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Mean", "@", "meanDist"}]}], "Input",
+ CellChangeTimes->{{3.7396657787536125`*^9, 3.739665801386434*^9}, 
+   3.739665851127823*^9, {3.7396659125323267`*^9, 3.7396659685487633`*^9}, {
+   3.739666566690444*^9, 3.739666614531979*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"20ea87b3-1888-4b64-98aa-5e1a7c99fd2c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"46.109375`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"30.64958214663626`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"65.21028053703547`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"24.602855389540178`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"28.58389543310413`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"26.452146384204877`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"23.4648108232108`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"32.56896114535752`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"33.23577451978592`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"26.89578609840243`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"23.82603300572159`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"45.5321995550633`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"26.755989736780574`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"21.852631156843305`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"18.947899201813666`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"38.472205525749686`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"25.61617222567994`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"66.69786265879868`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"23.689240986125377`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"31.80932680677369`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"31.805622161215698`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"28.7845318101232`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"29.01838922297964`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"23.52062207162899`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"27.624140331948116`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"21.025389255510113`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"9.453573375167714`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"38.34393171369471`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"27.80914520097063`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"65.0548402885268`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"28.037044257476413`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"21.27271786960327`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"29.7358912163066`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"31.34551449095104`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"114.59667440428395`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"28.05791194289362`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"33.66104365965047`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"49.79470745052317`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"26.996868005327638`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"25.00165493361006`","\"mi\"","miles","\"Miles\""},
+      "Quantity"], ",", 
+     TemplateBox[{"21.326705357014465`","\"mi\"","miles","\"Miles\""},
+      "Quantity"]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7396659878888407`*^9, 3.7396661678691072`*^9, 3.7396663568140078`*^9, 
+   3.7396664701308465`*^9, 3.7396666971304626`*^9, {3.7396668329159718`*^9, 
+   3.739666847611147*^9}, {3.739668945697549*^9, 3.7396689498501396`*^9}, 
+   3.7396691710114636`*^9, 3.739703834969425*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"1213d84c-eb21-4a1f-bdd6-dd0908a40e78"],
+
+Cell[BoxData[
+ TemplateBox[{"33.17826430890084`","\"mi\"","miles","\"Miles\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.7396659878888407`*^9, 3.7396661678691072`*^9, 3.7396663568140078`*^9, 
+   3.7396664701308465`*^9, 3.7396666971304626`*^9, {3.7396668329159718`*^9, 
+   3.739666847611147*^9}, {3.739668945697549*^9, 3.7396689498501396`*^9}, 
+   3.7396691710114636`*^9, 3.7397038349874163`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"aca274d4-f548-49f2-8096-86f36272b6b7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Calculation of scaleTimeFactor", "Title",
+ CellChangeTimes->{{3.7397043140421667`*^9, 
+  3.73970432201462*^9}},ExpressionUUID->"2ee9b91a-afd2-4417-b0e0-\
+9cae5196f3d6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"xUS", ",", " ", "yUS"}], "}"}], "=", 
+  RowBox[{
+   RowBox[{"GeoPosition", "[", 
+    RowBox[{"Entity", "[", 
+     RowBox[{"\"\<Country\>\"", ",", "\"\<UnitedStates\>\""}], "]"}], "]"}], "/.", 
+   RowBox[{"GeoPosition", "\[Rule]", "Identity"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"milesPerDegree", "=", 
+  RowBox[{"First", "@", 
+   RowBox[{"GeoDistance", "[", 
+    RowBox[{
+     RowBox[{"GeoPosition", "[", 
+      RowBox[{"{", 
+       RowBox[{"xUS", ",", " ", "yUS"}], "}"}], "]"}], ",", 
+     RowBox[{"GeoPosition", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"xUS", "+", "1"}], ",", " ", "yUS"}], "}"}], "]"}]}], 
+    "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.7397038657968626`*^9, 3.739703921667983*^9}, {
+  3.739704011744609*^9, 3.7397040475002184`*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"39d32f82-a48b-4b65-8882-f0d05a67dfca"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"38.`", ",", 
+   RowBox[{"-", "97.`"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.739703884082412*^9, 3.739703922412549*^9}, {
+  3.739704041120859*^9, 3.739704051678817*^9}},
+ CellLabel->"Out[30]=",ExpressionUUID->"908cd872-9ce2-4dca-a838-e3dcd6292c38"],
+
+Cell[BoxData["68.9759092201873`"], "Output",
+ CellChangeTimes->{{3.739703884082412*^9, 3.739703922412549*^9}, {
+  3.739704041120859*^9, 3.739704051681814*^9}},
+ CellLabel->"Out[31]=",ExpressionUUID->"ec65deed-8eaa-4597-b1e1-05bc6a958030"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"chosenMilePerDay", "=", 
+  RowBox[{"Round", "@", 
+   RowBox[{"First", "@", 
+    RowBox[{"Mean", "@", "meanDist"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"degreePerDay", "=", 
+  RowBox[{
+  "chosenMilePerDay", "/", "milesPerDegree"}]}], "\[IndentingNewLine]", 
+ RowBox[{"degreePerDay", "=", 
+  RowBox[{"degreePerDay", "*", "365"}]}], "\[IndentingNewLine]", 
+ RowBox[{"chosenScaleTimeFactor", "=", 
+  RowBox[{"Round", "@", "degreePerDay"}]}]}], "Input",
+ CellChangeTimes->{{3.7397040855964794`*^9, 3.7397041630323057`*^9}, {
+  3.739704214516938*^9, 3.7397042987368975`*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"efdf4430-3b48-4941-bd11-b0299dcf9ad5"],
+
+Cell[BoxData["33"], "Output",
+ CellChangeTimes->{
+  3.739704119520122*^9, {3.739704215447424*^9, 3.7397042506293554`*^9}, {
+   3.739704287320429*^9, 3.739704299403535*^9}},
+ CellLabel->"Out[48]=",ExpressionUUID->"edd3ce42-f2fd-4636-9e94-6f5660802892"],
+
+Cell[BoxData["0.47842790871601637`"], "Output",
+ CellChangeTimes->{
+  3.739704119520122*^9, {3.739704215447424*^9, 3.7397042506293554`*^9}, {
+   3.739704287320429*^9, 3.739704299406516*^9}},
+ CellLabel->"Out[49]=",ExpressionUUID->"31410134-ef34-489c-b7b6-3791642f306b"],
+
+Cell[BoxData["174.62618668134598`"], "Output",
+ CellChangeTimes->{
+  3.739704119520122*^9, {3.739704215447424*^9, 3.7397042506293554`*^9}, {
+   3.739704287320429*^9, 3.739704299408515*^9}},
+ CellLabel->"Out[50]=",ExpressionUUID->"a2dc4c9c-951c-4797-bcc3-1d4c60bae6ab"],
+
+Cell[BoxData["175"], "Output",
+ CellChangeTimes->{
+  3.739704119520122*^9, {3.739704215447424*^9, 3.7397042506293554`*^9}, {
+   3.739704287320429*^9, 3.739704299410512*^9}},
+ CellLabel->"Out[51]=",ExpressionUUID->"454ef56f-ded2-4539-afcb-92f878809f7c"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 637},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowStatusArea->None,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 7, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 225, 3, 28, "Input",ExpressionUUID->"50ce9772-6bfa-4df7-b224-b7af57072317"],
+Cell[CellGroupData[{
+Cell[811, 27, 173, 3, 96, "Title",ExpressionUUID->"13b14c0f-a34a-4ed1-bf45-27b2247e29ef"],
+Cell[CellGroupData[{
+Cell[1009, 34, 459, 10, 28, "Input",ExpressionUUID->"b786b10d-0829-48f1-9a3c-d9ce9f9aff58"],
+Cell[1471, 46, 225, 3, 32, "Output",ExpressionUUID->"9939582c-593d-4231-86ed-25e2135ed9a7"]
+}, Open  ]],
+Cell[1711, 52, 496, 11, 28, "Input",ExpressionUUID->"08606068-be01-404e-8ba2-18dfc3b0b7ff"],
+Cell[2210, 65, 322, 7, 28, "Input",ExpressionUUID->"3dc4c0d6-fc1e-4f77-8764-2b1d891e0d59"],
+Cell[CellGroupData[{
+Cell[2557, 76, 314, 6, 28, "Input",ExpressionUUID->"1b81d397-e647-4eda-b10e-92a949b64439"],
+Cell[2874, 84, 227, 3, 32, "Output",ExpressionUUID->"c9bba4b2-b2e1-40bc-8d01-eba2131280ab"]
+}, Open  ]],
+Cell[3116, 90, 324, 8, 28, "Input",ExpressionUUID->"c4723e12-02ca-43ac-8aef-20e8b94b9ff6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3477, 103, 230, 5, 156, "Title",ExpressionUUID->"3c4a5a1b-a2fe-46ae-bda6-4374c4b6cb16"],
+Cell[CellGroupData[{
+Cell[3732, 112, 874, 19, 48, "Input",ExpressionUUID->"8d3b0e77-0099-4997-8c5d-044e4e07c534"],
+Cell[4609, 133, 19098, 412, 375, "Output",ExpressionUUID->"96b234c8-b167-43cf-8a50-f65f9674c635"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23744, 550, 866, 21, 67, "Input",ExpressionUUID->"20ea87b3-1888-4b64-98aa-5e1a7c99fd2c"],
+Cell[24613, 573, 4296, 90, 127, "Output",ExpressionUUID->"1213d84c-eb21-4a1f-bdd6-dd0908a40e78"],
+Cell[28912, 665, 483, 8, 41, "Output",ExpressionUUID->"aca274d4-f548-49f2-8096-86f36272b6b7"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29444, 679, 174, 3, 96, "Title",ExpressionUUID->"2ee9b91a-afd2-4417-b0e0-9cae5196f3d6"],
+Cell[CellGroupData[{
+Cell[29643, 686, 907, 23, 48, "Input",ExpressionUUID->"39d32f82-a48b-4b65-8882-f0d05a67dfca"],
+Cell[30553, 711, 292, 6, 32, "Output",ExpressionUUID->"908cd872-9ce2-4dca-a838-e3dcd6292c38"],
+Cell[30848, 719, 238, 3, 32, "Output",ExpressionUUID->"ec65deed-8eaa-4597-b1e1-05bc6a958030"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31123, 727, 676, 14, 86, "Input",ExpressionUUID->"efdf4430-3b48-4941-bd11-b0299dcf9ad5"],
+Cell[31802, 743, 251, 4, 32, "Output",ExpressionUUID->"edd3ce42-f2fd-4636-9e94-6f5660802892"],
+Cell[32056, 749, 269, 4, 32, "Output",ExpressionUUID->"31410134-ef34-489c-b7b6-3791642f306b"],
+Cell[32328, 755, 268, 4, 32, "Output",ExpressionUUID->"a2dc4c9c-951c-4797-bcc3-1d4c60bae6ab"],
+Cell[32599, 761, 252, 4, 32, "Output",ExpressionUUID->"454ef56f-ded2-4539-afcb-92f878809f7c"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,488 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     21431,        480]
+NotebookOptionsPosition[     20448,        454]
+NotebookOutlinePosition[     20813,        470]
+CellTagsIndexPosition[     20770,        467]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Geographical Visualization", "Section",
+ CellChangeTimes->{{3.739921918575741*^9, 
+  3.7399219276377935`*^9}},ExpressionUUID->"c4ec9b98-0b0b-4279-88b8-\
+7d4feb8558d7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"iCluster", "=", "8"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"5", ",", " ", "6", ",", " ", "8"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ctsI", "=", 
+   RowBox[{"cts", "[", 
+    RowBox[{"[", "iCluster", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"nCounty", "=", 
+  RowBox[{"Length", "@", "ctsI"}]}]}], "Input",
+ CellChangeTimes->{{3.7394938192260017`*^9, 3.739493845659393*^9}, {
+   3.7394938827362285`*^9, 3.739493892974846*^9}, {3.7394947402485075`*^9, 
+   3.739494760303383*^9}, {3.739495187923309*^9, 3.739495188297528*^9}, {
+   3.7394953542830896`*^9, 3.739495360937141*^9}, {3.7395796246241655`*^9, 
+   3.7395796385595064`*^9}, {3.7395797013408327`*^9, 3.739579703815881*^9}, 
+   3.7395819134838*^9, 3.739616721173911*^9, 3.739616757435626*^9, {
+   3.7396178166221514`*^9, 3.739617816740008*^9}, 3.7396179608079786`*^9, 
+   3.739632005121954*^9, 3.739651523907979*^9, 3.739652651517525*^9, 
+   3.739653356555666*^9, {3.7396548790433693`*^9, 3.739654899091236*^9}, 
+   3.739654956907669*^9, 3.7397289985140047`*^9, 3.7397290308495626`*^9, 
+   3.7397874140550475`*^9, 3.739787481306836*^9, {3.7397877818255863`*^9, 
+   3.7397877842134523`*^9}, 3.7397878253379655`*^9, {3.739788050226373*^9, 
+   3.7397880582327237`*^9}, 3.7397892153562913`*^9, 3.7397912683376055`*^9, 
+   3.739791370216625*^9, 3.7398260729040017`*^9, {3.739920786366353*^9, 
+   3.7399207928935256`*^9}, {3.739920887621891*^9, 3.739920941164415*^9}, {
+   3.7399209817341857`*^9, 3.7399210557726126`*^9}, 3.739983484283839*^9, {
+   3.7399836439720864`*^9, 3.739983661506077*^9}, {3.7399837695319242`*^9, 
+   3.739983778090925*^9}},
+ CellLabel->
+  "In[2717]:=",ExpressionUUID->"974d09f3-70ea-4a6b-b505-42c8a404d1f3"],
+
+Cell[BoxData["40"], "Output",
+ CellChangeTimes->{
+  3.7395796390939054`*^9, 3.739579704487656*^9, 3.7395802250302896`*^9, 
+   3.739580619132416*^9, 3.7395807388405995`*^9, 3.739580971484109*^9, 
+   3.739581103582224*^9, 3.73958129967535*^9, 3.739581463660039*^9, 
+   3.7395816090423794`*^9, 3.7395817042244315`*^9, 3.7395818111362395`*^9, 
+   3.739581917031103*^9, 3.739616725884509*^9, 3.739616759482542*^9, 
+   3.739617820538783*^9, 3.7396179651035633`*^9, 3.7396284690728526`*^9, 
+   3.7396290265008397`*^9, 3.7396320094789953`*^9, 3.7396336822786703`*^9, 
+   3.7396515267197037`*^9, 3.739651814572124*^9, 3.7396518691198597`*^9, 
+   3.7396526536496763`*^9, 3.7396531112618847`*^9, 3.739653359148099*^9, 
+   3.7396547834967594`*^9, {3.739654881463847*^9, 3.7396549016496415`*^9}, 
+   3.7396549630265827`*^9, 3.7396551463405356`*^9, 3.7397289195540752`*^9, 
+   3.7397290012294545`*^9, 3.739729034317567*^9, 3.7397874162691603`*^9, 
+   3.7397874848461056`*^9, 3.739787541051509*^9, 3.7397878277779207`*^9, 
+   3.739788151902668*^9, 3.7397891699245815`*^9, 3.7397892178250704`*^9, 
+   3.739791272061144*^9, 3.7397913737792344`*^9, 3.73981384187716*^9, 
+   3.7398142026873426`*^9, 3.7398260221048756`*^9, {3.7398260736684766`*^9, 
+   3.739826078500766*^9}, 3.739826114646814*^9, 3.7399206501003866`*^9, 
+   3.739920707998763*^9, 3.7399208105567102`*^9, {3.7399208913186297`*^9, 
+   3.7399209460320597`*^9}, {3.7399209849984584`*^9, 3.739921024279357*^9}, 
+   3.7399833892213306`*^9, 3.7399834865552025`*^9, 3.739983820639789*^9},
+ CellLabel->
+  "Out[2719]=",ExpressionUUID->"126b57c2-d7d5-4c8b-ba5c-65368359f671"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"listTimeCountyI", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{"Entity", "[", 
+        RowBox[{"\"\<AdministrativeDivision\>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"StringReplace", "[", 
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+             RowBox[{"\"\< \>\"", "\[Rule]", "\"\<\>\""}]}], "]"}], ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", 
+                RowBox[{"-", "3"}], "]"}], "]"}], "\[Equal]", 
+              "\"\<DistrictOfColumbia\>\""}], ",", "Nothing", ",", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"-", "3"}], "]"}], "]"}]}], "]"}], ",", 
+           "\"\<UnitedStates\>\""}], "}"}]}], "]"}]}], "}"}], "&"}], "/@", 
+    "ctsI"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tExist", "=", 
+   RowBox[{"Sort", "@", 
+    RowBox[{"DeleteDuplicates", "@", 
+     RowBox[{"listTimeCountyI", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "1"}], "]"}], "]"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7394943942616196`*^9, 3.7394944306987495`*^9}, {
+   3.739494464531193*^9, 3.739494590736739*^9}, {3.739494653770491*^9, 
+   3.739494722583675*^9}, {3.739494777497115*^9, 3.739494806648967*^9}, {
+   3.7394949081934123`*^9, 3.7394949398326173`*^9}, {3.739579756133301*^9, 
+   3.739579801167001*^9}, {3.739580918176632*^9, 3.739580962788411*^9}, 
+   3.739581096260228*^9, 3.7395812735817575`*^9, 3.739826110634512*^9, {
+   3.7399836943717604`*^9, 3.739983695204586*^9}},
+ CellLabel->
+  "In[2720]:=",ExpressionUUID->"d6d0184d-6a1c-48ae-affb-3febc5e17825"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gr", "=", 
+   RowBox[{"GeoRange", "/.", 
+    RowBox[{"AbsoluteOptions", "[", 
+     RowBox[{
+      RowBox[{"GeoListPlot", "@", 
+       RowBox[{"listTimeCountyI", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "/.", 
+      RowBox[{"GeoPosition", "\[Rule]", "Identity"}]}], "]"}]}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.739555095415862*^9, 3.7395551253657155`*^9}, {
+   3.7395552300468197`*^9, 3.739555270033267*^9}, {3.7395553089531555`*^9, 
+   3.7395553130986977`*^9}, {3.7395556800787582`*^9, 
+   3.7395557002479963`*^9}, {3.739555774723486*^9, 3.739555775482329*^9}, {
+   3.739555886776346*^9, 3.739555891444811*^9}, 3.7395806323648415`*^9, 
+   3.73992080561265*^9},
+ CellLabel->
+  "In[2722]:=",ExpressionUUID->"a58bc600-fd8f-4d0b-8499-a0eae9b82b54"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"GeoListPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Select", "[", 
+       RowBox[{"listTimeCountyI", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "\[LessEqual]", "date"}], "&"}]}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", "gr"}], ",", 
+     RowBox[{"GeoProjection", "\[Rule]", "\"\<CylindricalEqualArea\>\""}]}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Control", "[", 
+       RowBox[{"{", 
+        RowBox[{"date", ",", "tExist", ",", "Slider", ",", 
+         RowBox[{"AutoAction", "\[Rule]", "False"}]}], "}"}], "]"}], ",", 
+      RowBox[{"Dynamic", "[", 
+       RowBox[{"firstdateD", "+", 
+        RowBox[{"Quantity", "[", 
+         RowBox[{
+          RowBox[{"date", "/", "scaleTime1"}], ",", "\"\<Years\>\""}], 
+         "]"}]}], "]"}]}], "}"}], "]"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.739494947632682*^9, 3.7394950138633175`*^9}, {
+   3.739495084129429*^9, 3.7394951349917383`*^9}, {3.739555910338109*^9, 
+   3.7395559295552373`*^9}, 3.7395817199827027`*^9, {3.7395818522553263`*^9, 
+   3.7395818552892685`*^9}, {3.7395818929849215`*^9, 3.739581895300171*^9}, {
+   3.739628457237424*^9, 3.7396284635621862`*^9}, {3.739628566983059*^9, 
+   3.7396286010003395`*^9}, 3.7396289438693895`*^9, {3.73978778754277*^9, 
+   3.739787790385739*^9}, {3.739787848076701*^9, 3.739787872322733*^9}, 
+   3.7397879939811835`*^9, {3.7397880733914323`*^9, 3.7397881391480994`*^9}, {
+   3.7397881917626667`*^9, 3.7397882671195364`*^9}, {3.7397883019832935`*^9, 
+   3.739788322106231*^9}, {3.7397891131536264`*^9, 3.739789137171733*^9}, {
+   3.7397892447683115`*^9, 3.7397892559557676`*^9}, {3.7397894020316734`*^9, 
+   3.739789431031379*^9}, {3.739789491592656*^9, 3.739789500263111*^9}, 
+   3.739789550141773*^9, {3.739790179855424*^9, 3.739790192201558*^9}, {
+   3.7397902271682987`*^9, 3.7397902806773014`*^9}, {3.7397905997786074`*^9, 
+   3.7397906113160405`*^9}, {3.739790877575146*^9, 3.7397909052314997`*^9}, {
+   3.7397910125456066`*^9, 3.739791059368576*^9}, 3.7397911618117805`*^9, {
+   3.7398143004325843`*^9, 3.739814318072813*^9}, {3.7398156066831694`*^9, 
+   3.739815631961585*^9}, {3.739826051742525*^9, 3.73982605302608*^9}, {
+   3.7398261298265247`*^9, 3.7398261448021517`*^9}, {3.73982661847501*^9, 
+   3.7398266318720064`*^9}, 3.7398267880519924`*^9, {3.7399206893465385`*^9, 
+   3.739920700429019*^9}, {3.739921274503294*^9, 3.7399212802155695`*^9}, {
+   3.7399836117832203`*^9, 3.739983617755692*^9}, 3.739983707134246*^9, {
+   3.7399838493651285`*^9, 3.739983853939588*^9}},
+ CellLabel->
+  "In[2723]:=",ExpressionUUID->"d213ba5d-2f85-41e3-90d2-b5bbf200c606"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`date$$ = 102.60273972602741`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`date$$], {102.60273972602741`, 104.04109589041096`, 
+      119.3835616438356, 138.56164383561642`, 167.32876712328766`, 
+      169.24657534246575`, 169.72602739726028`, 170.2054794520548, 
+      170.68493150684932`, 171.16438356164383`, 171.64383561643834`, 
+      172.12328767123287`, 172.6027397260274, 173.08219178082192`, 
+      174.04109589041096`, 174.5205479452055}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Dynamic[$CellContext`firstdateD + 
+          Quantity[$CellContext`date$$/$CellContext`scaleTime1, "Years"]]}]], 
+      Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
+    420., {153., 159.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`date$1357911$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`date$$ = 102.60273972602741`}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`date$$, $CellContext`date$1357911$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> GeoListPlot[
+        Part[
+         Select[$CellContext`listTimeCountyI, 
+          Part[#, 1] <= $CellContext`date$$& ], All, 2], 
+        GeoRange -> $CellContext`gr, GeoProjection -> "CylindricalEqualArea"],
+       "Specifications" :> {{$CellContext`date$$, {102.60273972602741`, 
+         104.04109589041096`, 119.3835616438356, 138.56164383561642`, 
+         167.32876712328766`, 169.24657534246575`, 169.72602739726028`, 
+         170.2054794520548, 170.68493150684932`, 171.16438356164383`, 
+         171.64383561643834`, 172.12328767123287`, 172.6027397260274, 
+         173.08219178082192`, 174.04109589041096`, 174.5205479452055}, 
+         ControlType -> Slider, AutoAction -> False, ControlPlacement -> 1}, 
+        Row[{
+          Manipulate`Place[1], 
+          
+          Dynamic[$CellContext`firstdateD + 
+           Quantity[$CellContext`date$$/$CellContext`scaleTime1, "Years"]]}]},
+       "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{471., {200., 207.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`listTimeCountyI = {{174.5205479452055, 
+          Entity[
+          "AdministrativeDivision", {
+           "JacksonCounty", "Oregon", "UnitedStates"}]}, {174.5205479452055, 
+          Entity[
+          "AdministrativeDivision", {
+           "JacksonCounty", "Oregon", "UnitedStates"}]}, {174.04109589041096`, 
+          Entity[
+          "AdministrativeDivision", {
+           "LassenCounty", "California", "UnitedStates"}]}, {
+         173.08219178082192`, 
+          Entity[
+          "AdministrativeDivision", {
+           "MaricopaCounty", "Arizona", "UnitedStates"}]}, {172.6027397260274, 
+          Entity[
+          "AdministrativeDivision", {
+           "SantaClaraCounty", "California", "UnitedStates"}]}, {
+         172.6027397260274, 
+          Entity[
+          "AdministrativeDivision", {
+           "WeberCounty", "Utah", "UnitedStates"}]}, {172.12328767123287`, 
+          Entity[
+          "AdministrativeDivision", {
+           "LosAngelesCounty", "California", "UnitedStates"}]}, {
+         171.64383561643834`, 
+          Entity[
+          "AdministrativeDivision", {
+           "YakimaCounty", "Washington", "UnitedStates"}]}, {
+         171.16438356164383`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         171.16438356164383`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         171.16438356164383`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         171.16438356164383`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         171.16438356164383`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         170.68493150684932`, 
+          Entity[
+          "AdministrativeDivision", {
+           "OrangeCounty", "California", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "WhatcomCounty", "Washington", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "KitsapCounty", "Washington", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "KitsapCounty", "Washington", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "MissoulaCounty", "Montana", "UnitedStates"}]}, {170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "ClarkCounty", "Nevada", "UnitedStates"}]}, {170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanJoaquinCounty", "California", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "MissoulaCounty", "Montana", "UnitedStates"}]}, {170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "MaricopaCounty", "Arizona", "UnitedStates"}]}, {170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "SpokaneCounty", "Washington", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "PimaCounty", "Arizona", "UnitedStates"}]}, {170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "AlamedaCounty", "California", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "LosAngelesCounty", "California", "UnitedStates"}]}, {
+         170.2054794520548, 
+          Entity[
+          "AdministrativeDivision", {
+           "KitsapCounty", "Washington", "UnitedStates"}]}, {
+         169.72602739726028`, 
+          Entity[
+          "AdministrativeDivision", {
+           "BernalilloCounty", "NewMexico", "UnitedStates"}]}, {
+         169.72602739726028`, 
+          Entity[
+          "AdministrativeDivision", {
+           "PierceCounty", "Washington", "UnitedStates"}]}, {
+         169.24657534246575`, 
+          Entity[
+          "AdministrativeDivision", {
+           "LosAngelesCounty", "California", "UnitedStates"}]}, {
+         169.24657534246575`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SonomaCounty", "California", "UnitedStates"}]}, {
+         169.24657534246575`, 
+          Entity[
+          "AdministrativeDivision", {
+           "KernCounty", "California", "UnitedStates"}]}, {
+         169.24657534246575`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SnohomishCounty", "Washington", "UnitedStates"}]}, {
+         167.32876712328766`, 
+          Entity[
+          "AdministrativeDivision", {
+           "LincolnCounty", "Oregon", "UnitedStates"}]}, {138.56164383561642`, 
+          Entity[
+          "AdministrativeDivision", {
+           "MarinCounty", "California", "UnitedStates"}]}, {119.3835616438356, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanDiegoCounty", "California", "UnitedStates"}]}, {
+         104.04109589041096`, 
+          Entity[
+          "AdministrativeDivision", {
+           "CacheCounty", "Utah", "UnitedStates"}]}, {104.04109589041096`, 
+          Entity[
+          "AdministrativeDivision", {
+           "WashoeCounty", "Nevada", "UnitedStates"}]}, {102.60273972602741`, 
+          Entity[
+          "AdministrativeDivision", {
+           "SanDiegoCounty", "California", 
+            "UnitedStates"}]}}, $CellContext`gr = {{30.5473145966181, 
+        49.88131206682771}, {-125.01416262804112`, -105.25126235104565`}}, 
+       TagSet[GeoProjection, 
+        MessageName[GeoProjection, "usage"], 
+        "GeoProjection is an option for GeoGraphics that specifies the \
+cartographic projection to use for the map."], $CellContext`firstdateD = 
+       DateObject[{2017, 3, 3}, "Day", 
+         "Gregorian", -4.], $CellContext`scaleTime1 = 175}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.739788232155366*^9, 3.7397882682156143`*^9}, 
+   3.739788313003492*^9, 3.739789139030352*^9, {3.739789171460099*^9, 
+   3.739789189146697*^9}, {3.739789222236062*^9, 3.739789256736932*^9}, 
+   3.7397895014377823`*^9, 3.739790194463106*^9, 3.7397902279730697`*^9, {
+   3.739790260169254*^9, 3.739790283047767*^9}, 3.739790612581299*^9, 
+   3.739790679870908*^9, 3.7397909068556485`*^9, 3.7397910141085997`*^9, 
+   3.7397910648634872`*^9, 3.7397911634318542`*^9, 3.739791284108612*^9, {
+   3.739791379431054*^9, 3.7397913823698206`*^9}, 3.739813863963297*^9, 
+   3.7398142072712617`*^9, 3.739814319557663*^9, {3.739826046340761*^9, 
+   3.73982608133498*^9}, {3.739826115287623*^9, 3.739826145359803*^9}, {
+   3.7398266209425488`*^9, 3.7398266326106553`*^9}, 3.7398267723190904`*^9, 
+   3.739826824287171*^9, 3.7399206505034275`*^9, 3.739920708375595*^9, 
+   3.739920812054018*^9, {3.739920892657739*^9, 3.739920949831649*^9}, {
+   3.739920987478421*^9, 3.739921024996262*^9}, 3.739921281856224*^9, 
+   3.7399833898602867`*^9, 3.739983491335513*^9, 3.7399836190113993`*^9, 
+   3.739983710118125*^9, 3.7399838209003086`*^9},
+ CellLabel->
+  "Out[2723]=",ExpressionUUID->"90b40496-c967-4fdd-ae26-31c569341021"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1264, 637},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowStatusArea->None,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 7, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 173, 3, 67, "Section",ExpressionUUID->"c4ec9b98-0b0b-4279-88b8-7d4feb8558d7"],
+Cell[CellGroupData[{
+Cell[781, 29, 1768, 32, 67, "Input",ExpressionUUID->"974d09f3-70ea-4a6b-b505-42c8a404d1f3"],
+Cell[2552, 63, 1612, 23, 32, "Output",ExpressionUUID->"126b57c2-d7d5-4c8b-ba5c-65368359f671"]
+}, Open  ]],
+Cell[4179, 89, 1888, 46, 67, "Input",ExpressionUUID->"d6d0184d-6a1c-48ae-affb-3febc5e17825"],
+Cell[6070, 137, 826, 19, 28, "Input",ExpressionUUID->"a58bc600-fd8f-4d0b-8499-a0eae9b82b54"],
+Cell[CellGroupData[{
+Cell[6921, 160, 2957, 56, 67, "Input",ExpressionUUID->"d213ba5d-2f85-41e3-90d2-b5bbf200c606"],
+Cell[9881, 218, 10539, 232, 426, "Output",ExpressionUUID->"90b40496-c967-4fdd-ae26-31c569341021"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

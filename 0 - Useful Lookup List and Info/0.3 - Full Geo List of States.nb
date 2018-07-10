@@ -1,0 +1,984 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     44124,        976]
+NotebookOptionsPosition[     38686,        901]
+NotebookOutlinePosition[     39052,        917]
+CellTagsIndexPosition[     39009,        914]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"Alabama, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Alabama\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Alabama\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Arizona, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Arizona\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Arizona\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Arkansas, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Arkansas\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Arkansas\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"California, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"California\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"California\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Colorado, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Colorado\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Colorado\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Connecticut, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Connecticut\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"Connecticut\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Delaware, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Delaware\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Delaware\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Florida, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Florida\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Florida\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Georgia, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Georgia\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Georgia\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Idaho, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Idaho\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Idaho\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Illinois, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Illinois\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Illinois\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Indiana, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Indiana\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Indiana\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Iowa, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Iowa\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Iowa\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Kansas, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Kansas\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Kansas\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Kentucky, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Kentucky\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Kentucky\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Louisiana, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Louisiana\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Louisiana\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Maine, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Maine\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Maine\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Maryland, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Maryland\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Maryland\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Massachusetts, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Massachusetts\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Massachusetts\\\
+\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Michigan, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Michigan\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Michigan\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Minnesota, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Minnesota\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Minnesota\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Mississippi, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Mississippi\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"Mississippi\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Missouri, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Missouri\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Missouri\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Montana, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Montana\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Montana\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Nebraska, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Nebraska\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Nebraska\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Nevada, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Nevada\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Nevada\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"New Hampshire, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"NewHampshire\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"NewHampshire\\\", \\\"UnitedStates\\\"}]\"",
+       "\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"New Jersey, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"NewJersey\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"NewJersey\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"New Mexico, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"NewMexico\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"NewMexico\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"New York, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"NewYork\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"NewYork\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"North Carolina, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"NorthCarolina\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"NorthCarolina\\\
+\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"North Dakota, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"NorthDakota\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"NorthDakota\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Ohio, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Ohio\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Ohio\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Oklahoma, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Oklahoma\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Oklahoma\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Oregon, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Oregon\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Oregon\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Pennsylvania, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Pennsylvania\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"Pennsylvania\\\", \\\"UnitedStates\\\"}]\"",
+       "\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Rhode Island, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"RhodeIsland\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"RhodeIsland\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"South Carolina, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"SouthCarolina\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"SouthCarolina\\\
+\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"South Dakota, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"SouthDakota\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"SouthDakota\\\", \\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Tennessee, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Tennessee\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Tennessee\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Texas, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Texas\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Texas\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Utah, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Utah\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Utah\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Vermont, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Vermont\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Vermont\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Virginia, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Virginia\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Virginia\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Washington, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Washington\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Washington\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"West Virginia, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"WestVirginia\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", \
+{\\\"WestVirginia\\\", \\\"UnitedStates\\\"}]\"",
+       "\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Wisconsin, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Wisconsin\"", ",", "\"UnitedStates\""}], "}"}]}], 
+         "]"}],"\"Entity[\\\"AdministrativeDivision\\\", {\\\"Wisconsin\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"], ",", 
+     TemplateBox[{"\"Wyoming, United States\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"AdministrativeDivision\"", ",", 
+           RowBox[{"{", 
+             RowBox[{"\"Wyoming\"", ",", "\"UnitedStates\""}], "}"}]}], "]"}],
+       "\"Entity[\\\"AdministrativeDivision\\\", {\\\"Wyoming\\\", \
+\\\"UnitedStates\\\"}]\"","\"administrative division\""},
+      "Entity"]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.73983486774846*^9, 3.739834901347107*^9}},
+ CellLabel->
+  "In[951]:=",ExpressionUUID->"be89cf8d-f2f5-4826-8313-c31712699d50"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"aCombine", "=", 
+    RowBox[{"{", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", 
+    RowBox[{"Length", "@", "states"}]}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "i", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"a1", "=", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"states", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "[", "\"\<Name\>\"", "]"}], ",", 
+       "\"\<,\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"a2", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"states", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], "[", "\"\<Position\>\"", "]"}], "/.", 
+      RowBox[{"GeoPosition", "\[Rule]", "Identity"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"aCombine", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"aCombine", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"a1", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", 
+         RowBox[{"a1", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", 
+         RowBox[{"a2", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", 
+         RowBox[{"a2", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "]"}]}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.739736771729233*^9, 3.7397368912451925`*^9}, {
+   3.7397369237234488`*^9, 3.7397370028900414`*^9}, {3.7397370329580655`*^9, 
+   3.739737033436857*^9}, {3.7397370963075733`*^9, 3.7397370984508553`*^9}, 
+   3.739737172392046*^9, {3.739737220244035*^9, 3.7397373272338657`*^9}, 
+   3.739737362618789*^9, {3.7397374356330767`*^9, 3.739737575586979*^9}, {
+   3.739739661601418*^9, 3.739739732229139*^9}, {3.7398349066463823`*^9, 
+   3.739834907826271*^9}, {3.7398349503493786`*^9, 3.7398350700265093`*^9}},
+ CellLabel->
+  "In[956]:=",ExpressionUUID->"fcc2490b-40e5-4890-9d93-75c9a0c132ef"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["1"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835075358836*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"ddf964f6-cc9d-4283-8a11-6ee26ee8df1d"],
+
+Cell[BoxData["2"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.7398350753688183`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"06d775f8-59ae-43e7-a187-f76f3f3730c2"],
+
+Cell[BoxData["3"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835075379798*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"8e6717e9-7ced-40c3-a8a2-813bb67e7a44"],
+
+Cell[BoxData["4"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.7398350753842897`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"dc3e4087-1fde-4e28-a4c9-8eb2ab5e061b"],
+
+Cell[BoxData["5"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835076018914*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"483847af-4458-4424-a7b7-b2a856fce05b"],
+
+Cell[BoxData["6"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835076681264*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"99c75a91-6815-465f-811f-5387b0ac7357"],
+
+Cell[BoxData["7"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835077163457*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"16112514-ccd0-4865-82cc-2ddb655ad64a"],
+
+Cell[BoxData["8"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835077661648*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"b69d4b28-4451-4f17-a045-0e83dd34c066"],
+
+Cell[BoxData["9"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.7398350786355*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"fc1a3e1d-0743-4479-8f1d-7d0e0f83c503"],
+
+Cell[BoxData["10"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.7398350795899553`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"d6dcff5b-d424-40eb-81ae-061e7c36a9fa"],
+
+Cell[BoxData["11"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, {3.739835051013446*^9, 
+   3.739835080539333*^9}},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"5c71cf50-727e-4ee1-84b8-c45c33d1692b"],
+
+Cell[BoxData["12"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350814842253`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"a70be792-4cca-4979-86a8-17252c64dac7"],
+
+Cell[BoxData["13"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350824609823`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"84ab3f1b-6083-4bfb-b271-a88d863100db"],
+
+Cell[BoxData["14"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350834562635`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"657d0603-b928-44e3-aa22-9d2c6a9a8e89"],
+
+Cell[BoxData["15"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835084373723*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"869c89b4-622a-48ee-bb73-16b5591a2fe1"],
+
+Cell[BoxData["16"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350852651978`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"f232edb6-ff2b-426b-915a-bc28f1f33268"],
+
+Cell[BoxData["17"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350862707243`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"5c73261d-ce22-4664-a227-5a439ea9beef"],
+
+Cell[BoxData["18"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835087228261*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"2cb18cd4-023e-4f60-abbf-c2fdebca81d6"],
+
+Cell[BoxData["19"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350877515173`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"18c26156-0e20-48a2-8167-e40f4be142b2"],
+
+Cell[BoxData["20"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350882981005`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"a0b4ef91-ebdc-4d35-a9bc-bdf74202e298"],
+
+Cell[BoxData["21"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835089728373*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"b72d5c23-3e93-4fda-8e65-d13cc8cba8a0"],
+
+Cell[BoxData["22"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835090719187*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"595e7562-e699-445b-8be7-82f5dab587d4"],
+
+Cell[BoxData["23"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835091629007*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"4ac08a23-aa6b-456f-89ea-7662741c1e04"],
+
+Cell[BoxData["24"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350927187986`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"5e514fd5-2349-4956-adba-41e192ace68b"],
+
+Cell[BoxData["25"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350937172375`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"63439b83-527f-4809-8c9c-b31e8d77b2bb"],
+
+Cell[BoxData["26"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350951102076`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"150ecc9f-1531-4cef-9295-75af6a532539"],
+
+Cell[BoxData["27"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350964956565`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"1d49d8a8-936e-4bd7-9762-025bdbb23fcc"],
+
+Cell[BoxData["28"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835097509634*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"f3e8542a-8f8a-4835-bfa9-af85d3301c27"],
+
+Cell[BoxData["29"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350979758873`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"5d2bd7a8-4242-4f39-be1d-8634b29780f2"],
+
+Cell[BoxData["30"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350993008056`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"869d2ddc-2ba2-400f-9301-331199642d81"],
+
+Cell[BoxData["31"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398350998030334`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"0dea09e8-e4f1-4d79-896e-d9e0041bb96d"],
+
+Cell[BoxData["32"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351007327404`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"3f524d9c-e0ef-42b9-af72-2fb8d4c65725"],
+
+Cell[BoxData["33"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835101719694*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"6ece8ac2-d5ac-40d0-83ec-e1c82e0736c3"],
+
+Cell[BoxData["34"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351027413235`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"6571a85a-c2ca-49fc-8841-b80fdacf9f1a"],
+
+Cell[BoxData["35"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351038116035`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"8bcedb0a-1e79-4d38-b6da-c8feb0711ce9"],
+
+Cell[BoxData["36"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351047529235`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"a08c585f-96da-4be6-800d-30de6084caa8"],
+
+Cell[BoxData["37"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351052664104`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"5005ffb8-c1ff-490e-b5dc-d48050895e4a"],
+
+Cell[BoxData["38"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835105783629*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"e70a31ce-4934-4f5b-9fa0-9ab61c2443a3"],
+
+Cell[BoxData["39"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351066990557`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"263f8fc9-7a1b-456c-a416-013871be5147"],
+
+Cell[BoxData["40"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351076146593`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"7d025310-4359-4dee-85ab-34f19b954747"],
+
+Cell[BoxData["41"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351085624495`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"6b4c7147-83a5-4f61-937e-b0a0f8269787"],
+
+Cell[BoxData["42"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835109456288*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"370c1d76-08da-4c14-a402-6cd49848d3d2"],
+
+Cell[BoxData["43"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835110481164*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"6da66b85-a24a-42ab-bf0b-3d0131c6112f"],
+
+Cell[BoxData["44"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351116222367`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"5e61b8ec-f1f2-44ac-9351-2e5926abca14"],
+
+Cell[BoxData["45"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835112197674*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"53aa10e6-3550-48de-b7f9-7c43159b5efe"],
+
+Cell[BoxData["46"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351131412916`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"4b40f54c-f998-4944-8890-57958bd153bc"],
+
+Cell[BoxData["47"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.739835114097381*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"1cb60753-e895-4563-8d33-9a6ab14e2db1"],
+
+Cell[BoxData["48"], "Print",
+ CellChangeTimes->{
+  3.739737365244829*^9, {3.739737438280151*^9, 3.73973751569656*^9}, {
+   3.7397375475556836`*^9, 3.7397375889971423`*^9}, 3.739835051013446*^9, 
+   3.7398351149744596`*^9},
+ CellLabel->
+  "During evaluation of \
+In[956]:=",ExpressionUUID->"29b8346a-09af-45e0-b45d-ad8595e69976"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "@", "aCombine"}]], "Input",
+ CellChangeTimes->{{3.7397388203740997`*^9, 3.739738821805719*^9}},
+ CellLabel->
+  "In[958]:=",ExpressionUUID->"9d161db4-be31-4cf6-b974-e611dd75ac46"],
+
+Cell[BoxData["48"], "Output",
+ CellChangeTimes->{
+  3.7397373180679965`*^9, {3.7397374954360814`*^9, 3.7397375178355885`*^9}, {
+   3.7397375502451177`*^9, 3.739737561727567*^9}, 3.73973882291753*^9, 
+   3.739835121917471*^9},
+ CellLabel->
+  "Out[958]=",ExpressionUUID->"0352ddac-5eea-4fa3-8adf-d4f085bafd39"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<States Full List.csv\>\""}], "]"}], ",", "aCombine", ",", 
+   "\"\<CSV\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.739737058488333*^9, 3.7397371328807793`*^9}, {
+   3.7397940558569984`*^9, 3.7397940822233334`*^9}, {3.7397941220468636`*^9, 
+   3.7397941221775475`*^9}, 3.739835130332629*^9},
+ CellLabel->
+  "In[959]:=",ExpressionUUID->"3d8b4479-034b-44db-895b-e0adaae0fe42"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Lanston\\\\Documents\\\\GitHub\\\\\
+Summer2018Starter\\\\Submission\\\\Project\\\\0 - Useful Lookup List and Info\
+\\\\States Full List.csv\"\>"], "Output",
+ CellChangeTimes->{3.739835132432067*^9},
+ CellLabel->
+  "Out[959]=",ExpressionUUID->"3b3ce738-fe33-4b8b-ad3f-629b0f70a6e1"]
+}, Open  ]]
+},
+WindowSize->{1264, 637},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+WindowStatusArea->None,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 7, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 18695, 348, 536, "Input",ExpressionUUID->"be89cf8d-f2f5-4826-8313-c31712699d50"],
+Cell[CellGroupData[{
+Cell[19281, 372, 2050, 50, 162, "Input",ExpressionUUID->"fcc2490b-40e5-4890-9d93-75c9a0c132ef"],
+Cell[CellGroupData[{
+Cell[21356, 426, 327, 7, 22, "Print",ExpressionUUID->"ddf964f6-cc9d-4283-8a11-6ee26ee8df1d"],
+Cell[21686, 435, 329, 7, 22, "Print",ExpressionUUID->"06d775f8-59ae-43e7-a187-f76f3f3730c2"],
+Cell[22018, 444, 327, 7, 22, "Print",ExpressionUUID->"8e6717e9-7ced-40c3-a8a2-813bb67e7a44"],
+Cell[22348, 453, 329, 7, 22, "Print",ExpressionUUID->"dc3e4087-1fde-4e28-a4c9-8eb2ab5e061b"],
+Cell[22680, 462, 327, 7, 22, "Print",ExpressionUUID->"483847af-4458-4424-a7b7-b2a856fce05b"],
+Cell[23010, 471, 327, 7, 22, "Print",ExpressionUUID->"99c75a91-6815-465f-811f-5387b0ac7357"],
+Cell[23340, 480, 327, 7, 22, "Print",ExpressionUUID->"16112514-ccd0-4865-82cc-2ddb655ad64a"],
+Cell[23670, 489, 327, 7, 22, "Print",ExpressionUUID->"b69d4b28-4451-4f17-a045-0e83dd34c066"],
+Cell[24000, 498, 325, 7, 22, "Print",ExpressionUUID->"fc1a3e1d-0743-4479-8f1d-7d0e0f83c503"],
+Cell[24328, 507, 330, 7, 22, "Print",ExpressionUUID->"d6dcff5b-d424-40eb-81ae-061e7c36a9fa"],
+Cell[24661, 516, 328, 7, 22, "Print",ExpressionUUID->"5c71cf50-727e-4ee1-84b8-c45c33d1692b"],
+Cell[24992, 525, 328, 7, 22, "Print",ExpressionUUID->"a70be792-4cca-4979-86a8-17252c64dac7"],
+Cell[25323, 534, 328, 7, 22, "Print",ExpressionUUID->"84ab3f1b-6083-4bfb-b271-a88d863100db"],
+Cell[25654, 543, 328, 7, 22, "Print",ExpressionUUID->"657d0603-b928-44e3-aa22-9d2c6a9a8e89"],
+Cell[25985, 552, 326, 7, 22, "Print",ExpressionUUID->"869c89b4-622a-48ee-bb73-16b5591a2fe1"],
+Cell[26314, 561, 328, 7, 22, "Print",ExpressionUUID->"f232edb6-ff2b-426b-915a-bc28f1f33268"],
+Cell[26645, 570, 328, 7, 22, "Print",ExpressionUUID->"5c73261d-ce22-4664-a227-5a439ea9beef"],
+Cell[26976, 579, 326, 7, 22, "Print",ExpressionUUID->"2cb18cd4-023e-4f60-abbf-c2fdebca81d6"],
+Cell[27305, 588, 328, 7, 22, "Print",ExpressionUUID->"18c26156-0e20-48a2-8167-e40f4be142b2"],
+Cell[27636, 597, 328, 7, 22, "Print",ExpressionUUID->"a0b4ef91-ebdc-4d35-a9bc-bdf74202e298"],
+Cell[27967, 606, 326, 7, 22, "Print",ExpressionUUID->"b72d5c23-3e93-4fda-8e65-d13cc8cba8a0"],
+Cell[28296, 615, 326, 7, 22, "Print",ExpressionUUID->"595e7562-e699-445b-8be7-82f5dab587d4"],
+Cell[28625, 624, 326, 7, 22, "Print",ExpressionUUID->"4ac08a23-aa6b-456f-89ea-7662741c1e04"],
+Cell[28954, 633, 328, 7, 22, "Print",ExpressionUUID->"5e514fd5-2349-4956-adba-41e192ace68b"],
+Cell[29285, 642, 328, 7, 22, "Print",ExpressionUUID->"63439b83-527f-4809-8c9c-b31e8d77b2bb"],
+Cell[29616, 651, 328, 7, 22, "Print",ExpressionUUID->"150ecc9f-1531-4cef-9295-75af6a532539"],
+Cell[29947, 660, 328, 7, 22, "Print",ExpressionUUID->"1d49d8a8-936e-4bd7-9762-025bdbb23fcc"],
+Cell[30278, 669, 326, 7, 22, "Print",ExpressionUUID->"f3e8542a-8f8a-4835-bfa9-af85d3301c27"],
+Cell[30607, 678, 328, 7, 22, "Print",ExpressionUUID->"5d2bd7a8-4242-4f39-be1d-8634b29780f2"],
+Cell[30938, 687, 328, 7, 22, "Print",ExpressionUUID->"869d2ddc-2ba2-400f-9301-331199642d81"],
+Cell[31269, 696, 328, 7, 22, "Print",ExpressionUUID->"0dea09e8-e4f1-4d79-896e-d9e0041bb96d"],
+Cell[31600, 705, 328, 7, 22, "Print",ExpressionUUID->"3f524d9c-e0ef-42b9-af72-2fb8d4c65725"],
+Cell[31931, 714, 326, 7, 22, "Print",ExpressionUUID->"6ece8ac2-d5ac-40d0-83ec-e1c82e0736c3"],
+Cell[32260, 723, 328, 7, 22, "Print",ExpressionUUID->"6571a85a-c2ca-49fc-8841-b80fdacf9f1a"],
+Cell[32591, 732, 328, 7, 22, "Print",ExpressionUUID->"8bcedb0a-1e79-4d38-b6da-c8feb0711ce9"],
+Cell[32922, 741, 328, 7, 22, "Print",ExpressionUUID->"a08c585f-96da-4be6-800d-30de6084caa8"],
+Cell[33253, 750, 328, 7, 22, "Print",ExpressionUUID->"5005ffb8-c1ff-490e-b5dc-d48050895e4a"],
+Cell[33584, 759, 326, 7, 22, "Print",ExpressionUUID->"e70a31ce-4934-4f5b-9fa0-9ab61c2443a3"],
+Cell[33913, 768, 328, 7, 22, "Print",ExpressionUUID->"263f8fc9-7a1b-456c-a416-013871be5147"],
+Cell[34244, 777, 328, 7, 22, "Print",ExpressionUUID->"7d025310-4359-4dee-85ab-34f19b954747"],
+Cell[34575, 786, 328, 7, 22, "Print",ExpressionUUID->"6b4c7147-83a5-4f61-937e-b0a0f8269787"],
+Cell[34906, 795, 326, 7, 22, "Print",ExpressionUUID->"370c1d76-08da-4c14-a402-6cd49848d3d2"],
+Cell[35235, 804, 326, 7, 22, "Print",ExpressionUUID->"6da66b85-a24a-42ab-bf0b-3d0131c6112f"],
+Cell[35564, 813, 328, 7, 22, "Print",ExpressionUUID->"5e61b8ec-f1f2-44ac-9351-2e5926abca14"],
+Cell[35895, 822, 326, 7, 22, "Print",ExpressionUUID->"53aa10e6-3550-48de-b7f9-7c43159b5efe"],
+Cell[36224, 831, 328, 7, 22, "Print",ExpressionUUID->"4b40f54c-f998-4944-8890-57958bd153bc"],
+Cell[36555, 840, 326, 7, 22, "Print",ExpressionUUID->"1cb60753-e895-4563-8d33-9a6ab14e2db1"],
+Cell[36884, 849, 328, 7, 22, "Print",ExpressionUUID->"29b8346a-09af-45e0-b45d-ad8595e69976"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37261, 862, 212, 4, 28, "Input",ExpressionUUID->"9d161db4-be31-4cf6-b974-e611dd75ac46"],
+Cell[37476, 868, 308, 6, 32, "Output",ExpressionUUID->"0352ddac-5eea-4fa3-8adf-d4f085bafd39"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37821, 879, 532, 12, 28, "Input",ExpressionUUID->"3d8b4479-034b-44db-895b-e0adaae0fe42"],
+Cell[38356, 893, 314, 5, 89, "Output",ExpressionUUID->"3b3ce738-fe33-4b8b-ad3f-629b0f70a6e1"]
+}, Open  ]]
+}
+]
+*)
+
