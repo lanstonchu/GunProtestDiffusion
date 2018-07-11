@@ -122,7 +122,7 @@ For the temporary factor, we would model it with a similar approach. We would as
 Prediction of Gun Protests
 -----------------
 
-Based on the occurred protest and the jump model obtained above, we can, therefore, make a prediction on the next protests based on the occurred events. At any specific time point  $t_1$ (say, one day away from the latest data), we would have a "cross section" at $t_1$, which can be considered as a $t_1$-surface, namely $L_{t_1}$. For every location $( \,lat_i, long_i, t_1) \,$ on $L_{t_1}$, there will be temporal and spatial distances from it to the a respective nearest protest point. We would then subsequently obtain the PDF for the entire $L_{t_1}$. Below is our protest prediction in the first few days in July 2018, based on the data up to June 30, 2018. We can see that Florida is most likely to have gun protests in early July 2018.
+Based on the occurred protest and the jump model obtained above, we can, therefore, make a prediction on the next protests based on the occurred events. At any specific time point  $t_ 1$ (say, one day away from the latest data), we would have a "cross section" at $t_ 1$, which can be considered as a $t_ 1$-surface, namely $L_ {t_ 1}$. For every location $(lat_ i,long_ i,t_ 1)$ on $L_ {t_ 1}$, there will be temporal and spatial distances from it to the a respective nearest protest point. We would then subsequently obtain the PDF for the entire $L_ {t_ 1}$. Below is our protest prediction in the first few days in July 2018, based on the data up to June 30, 2018. We can see that Florida is most likely to have gun protests in early July 2018.
 
 ![Image 7 - Prediction of Protests][24]
 
