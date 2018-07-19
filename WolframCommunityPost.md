@@ -1,4 +1,4 @@
-![feature image - image combination][1]
+![feature image 2 - image combination][1]
 
 Project Title: **Machine Learning on Social Events: Cluster-Tree-MLE Analysis on Gun Protests Diffusion in Space-time Metric Space**
 
@@ -110,7 +110,7 @@ $$f(x; \lambda)=\begin{cases}\lambda e^{-\lambda x},  \quad x\geq 0,\\ 0, \qqua
 
 Then we would obtain the $\lambda$ of each cluster by [maximum likelihood estimation][23] (i.e. MLE; EstimatedDistribution in Wolfram Language) as below, where λ1 and λ2 are the spatial and temporal parameters of the respective exponential distributions:-
 
-    distml = Table[EstimatedDistribution[edgeVectorsAllJ[[j, All, i]], ExponentialDistribution[λ]]], {i, 1, 2}];
+    distml = Table[EstimatedDistribution[edgeVectorsAllJ[[j, All, i]], ExponentialDistribution[λ]], {i, 1, 2}];
     {λ1, λ2} = 1/Mean /@ distml;
 
 ![Image 6 - Statistics of jump - b][24]
@@ -224,7 +224,7 @@ Other Information
  - [Maximum likelihood estimation][36]
 
 
-  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=imgComb.jpg&userId=1353389
+  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=featureimage2.png&userId=1353389
   [2]: https://github.com/lanstonchu/GunProtestDiffusion
   [3]: https://en.wikipedia.org/wiki/Stoneman_Douglas_High_School_shooting
   [4]: https://en.wikipedia.org/wiki/2018_United_States_gun_violence_protests#Enough!_National_School_Walkout
