@@ -238,7 +238,7 @@ Other Information
   [10]: https://www.nytimes.com/2018/03/12/health/gun-violence-research-cdc.html
   [11]: https://github.com/lanstonchu/GunProtestDiffusion/blob/master/2%20-%20Main%20Analysis/2%20-%20analysis%20-%20Main.nb
   [12]: https://en.wikipedia.org/wiki/Metric_space#Definition
-  [13]: https://community.wolfram.com//c/portal/getImageAttachment?filename=1-ProtestPoints-c-small.gif&userId=1353389
+  [13]: https://community.wolfram.com//c/portal/getImageAttachment?filename=1-ProtestPoints-c-small2.gif&userId=1353389
   [14]: https://en.wikipedia.org/wiki/Columbine_High_School_massacre
   [15]: http://methods.sagepub.com/book/handbook-of-data-analysis/n16.xml
   [16]: https://github.com/lanstonchu/GunProtestDiffusion/blob/master/0%20-%20Useful%20Lookup%20List%20and%20Info/0.2%20-%20counties%20distance.nb
